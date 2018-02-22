@@ -1,0 +1,78 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout-CarFinder.cshtml";
+}
+
+<div ng-app="app">
+    <div ng-controller="CarController as vm" ng-cloak>
+        <div class="container">
+            <div class="title">
+                <h1>Car Finder</h1>
+            </div>
+            <div class="row">
+                <h4 class="subtitle col-md-offset-1">&nbsp;&nbsp;&nbsp;Search NHTSA Recall Database</h4>
+                <div class="col-md-offset-1 col-md-2">
+                    <select id="carYear" ng-model="vm.selectedYear"
+                            ng-options="year for year in vm.years | limitTo : 36"
+                            ng-change="vm.getMakes()"
+                            ng-init="vm.selectedYear=vm.years[0]"
+                            class="form-control">
+                        <option value="" disabled selected ng-hide="vm.selectedYear!=vm.years[0]">
+                            Select Year...
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select id="carMake" ng-model="vm.selectedMake"
+                            ng-options="make for make in vm.makes"
+                            ng-change="vm.getModels()"
+                            ng-disabled="vm.makes.length < 1"
+                            ng-init="vm.selectedMake=vm.makes[0]"
+                            class="form-control">
+                        <option value="" disabled selected ng-hide="vm.selectedMake!=vm.makes[0]">
+                            Select Make...
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select id="carModel" ng-model="vm.selectedModel"
+                            ng-options="model for model in vm.models"
+                            ng-change="vm.getTrims()"
+                            ng-disabled="vm.models.length < 1"
+                            ng-init="vm.selectedModel=vm.models[0]"
+                            class="form-control">
+                        <option value="" disabled selected ng-hide="vm.selectedModel!=vm.models[0]">
+                            Select Model...
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <select id="carTrim" ng-model="vm.selectedTrim"
+                            ng-options="trim for trim in vm.trims"
+                            ng-change="vm.isValidSearch()"
+                            ng-disabled="vm.trims.length < 1 "
+                            ng-init="vm.selectedTrim=vm.trims[0]"
+                            class="form-control"
+                            required>
+                        <option value="" disabled selected ng-hide="vm.selectedTrim!=vm.trims[0]">
+                            Select Trim...
+                        </option>
+                    </select>
+                </div>
+                <div class="col-md-2" style="text-center">
+                    <button class="btn btn-primary col-md-5" ng-click="vm.getCar()"
+                            ng-disabled="!vm.validSearch"
+                            pull-left>
+                        Get Car
+                    </button>
+                    <button class="btn btn-primary col-md-5" ng-click="vm.reset()"
+                            ng-disabled=""
+                            pull-right>
+                        Reset
+                    </button>
+                </div>
+            </div>
+            <div class="ui-spinner" ng-if="vm.showSpinner"></div>
+        </div>
+    </div>
+</div>

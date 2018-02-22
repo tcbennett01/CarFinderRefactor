@@ -1,0 +1,87 @@
+﻿
+/*html::-webkit-scrollbar {
+    display: none;
+    overflow: hidden;
+}*/
+
+body {
+    /*height: 100vh;
+    width: 100vw;*/
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background: url("images/bugatti-veyron.jpg") no-repeat center center fixed;
+  background-size: cover
+}
+
+.title {
+        margin-bottom: 25px;
+}
+.title h1 {
+    font-family: Rock Salt;
+    font-size: 48px;
+}
+
+.title h1,
+.subtitle {
+    color: white;
+}
+
+[ng\:cloak], [ng-cloak], .ng-cloak {
+  display: none !important;
+}
+
+.btn {
+    margin-right: 2px;
+    margin-left: 2px;
+    text-align: center;
+    min-width: 75px;
+}
+
+select:focus {
+    overflow: scroll;
+}
+
+.modal .modal-body {
+    max-height: calc(100vh - 275px);
+    overflow-y: scroll;
+}
+
+.modal{
+    overflow-y: auto;
+}
+.modal-open {
+    overflow: auto;
+}
+
+.modal-header {
+    border-radius: 10px 10px 0 0;
+}
+
+hr {
+    border-top: 1px solid #005FA8;
+}
+
+.loader{
+  border: 16px solid #f3f3f3;
+  border-radius: 25%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+.ui-spinner {
+  margin: 10% auto 0;
+  height: 50px;
+  width: 50px;
+  animation: rotate 0.8s infinite linear;
+  border: 8px solid #fff;
+  border-right-color: transparent;
+  border-radius: 50%;
+}
+
+@keyframes rotate {
+  0%    { transform: rotate(0deg); }
+  100%  { transform: rotate(360deg); }
+}
