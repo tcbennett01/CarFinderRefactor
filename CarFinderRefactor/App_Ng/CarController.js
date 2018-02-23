@@ -109,7 +109,8 @@
             vm.$modalInstance = $uibModal.open({
                 templateUrl: '~/../../App_Ng/carmodal.html',
                 scope: $scope,
-                size: 'lg'
+                size: 'lg',
+                backdrop: 'static'
             })
         }
 
