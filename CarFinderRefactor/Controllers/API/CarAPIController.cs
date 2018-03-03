@@ -16,7 +16,12 @@ namespace CarFinderRefactor.Controllers.API
     [RoutePrefix("api/Cars")]
     public class CarAPIController : ApiController
     {
-        private ApplicationDbContext _db = new ApplicationDbContext();
+        private ApplicationDbContext _db;
+
+        public CarAPIController()
+        {
+            _db = new ApplicationDbContext();
+        }
 
         [Route("Years")]
         public async Task<List<string>> GetYears()
